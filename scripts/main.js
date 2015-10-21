@@ -11,8 +11,8 @@ var prices = items.map(function (prices){
 
 // console.log(prices);
 
-var total = prices.reduce(function (total, current){
-  return total + current;
+var total = prices.reduce(function (a, b){
+  return a + b;
 });
 
 // console.log(total);
@@ -21,7 +21,7 @@ var numberItems = prices.length;
 // console.log(numberItems);
 
 var avg = total / numberItems
-console.log(avg.toFixed(2));
+console.log("The average price is $" + avg.toFixed(2));
 //
 // Show me how to get an array of items that cost between $14.00 and $18.00 USD
 //
@@ -44,7 +44,10 @@ console.log(avg.toFixed(2));
 var modprice = items.filter(function (things){
   return things.price > 14.00 && things.price < 18.00;
 });
-console.log(modprice);
+console.log("Items that cost between $14.00 USD and $18.00 USD: "
++ '\n' + "title: " + modprice[0].title
+ + '\n' + "title: " + modprice[1].title
+  + '\n' + "title: " + modprice[2].title);
 // Show me how find the item with a "GBP" currency code and print its name and price. Please console.log the one you find.
 //
 // 1970s Schlitz Malt Liquor Glass Beer Pitcher costs £18
@@ -52,7 +55,7 @@ console.log(modprice);
 var gbp = items.filter(function(gbp){
   return gbp.currency_code === "GBP";
 });
-console.log(gbp[0].title + ' costs ' + gbp[0].price + "£ British Pounds Sterling, ol chap!");
+console.log(gbp[0].title + ' costs £' + gbp[0].price + " British Pounds Sterling, ol chap!");
 //
 // Show me how to find which items are made of wood. Please console.log the ones you find.
 //
@@ -65,7 +68,13 @@ console.log(gbp[0].title + ' costs ' + gbp[0].price + "£ British Pounds Sterlin
 var wooden = items.filter(function(wooden){
   return wooden.materials.indexOf('wood') != -1;
 });
-console.log(wooden);
+console.log(
+  "title: " + wooden[0].title
+  + '\n' + "title: " + wooden[1].title
+  + '\n' + "title: " + wooden[2].title
+  + '\n' + "title: " + wooden[3].title
+  + '\n' + "title: " + wooden[4].title
+);
 //
 // Show me how to find which items are made of eight or more materials. Please console.log the ones you find.
 //
@@ -99,7 +108,12 @@ console.log(wooden);
 var complex = items.filter(function(complex){
   return complex.materials.length > 7;
 });
-console.log(complex);
+console.log(
+  "title: " + complex[0].title
+  + '\n' + "materials: " + complex[0].materials
+  + '\n' + "title: " + complex[1].title
+  + '\n' + "materials: " + complex[1].materials
+);
 //
 // Show me how to calculate how many items were made by their sellers
 //
